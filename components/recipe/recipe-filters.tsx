@@ -9,24 +9,28 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { CATEGORIES, DIFFICULTIES } from "@/lib/constants/recipe";
+import { CATEGORIES, DIFFICULTIES, CUISINES } from "@/lib/constants/recipe";
 
 interface RecipeFiltersProps {
   search: string;
   category: string;
   difficulty: string;
+  cuisine: string;
   onSearchChange: (value: string) => void;
   onCategoryChange: (value: string) => void;
   onDifficultyChange: (value: string) => void;
+  onCuisineChange: (value: string) => void;
 }
 
 export function RecipeFilters({
   search,
   category,
   difficulty,
+  cuisine,
   onSearchChange,
   onCategoryChange,
   onDifficultyChange,
+  onCuisineChange,
 }: RecipeFiltersProps) {
   return (
     <div className="bg-card border rounded-lg p-4">
@@ -40,7 +44,7 @@ export function RecipeFilters({
             onChange={(e) => onSearchChange(e.target.value)}
           />
         </div>
-        <div className="flex gap-4 w-full md:w-auto">
+        <div className="flex flex-wrap gap-4 w-full md:w-auto">
           <Select value={category} onValueChange={onCategoryChange}>
             <SelectTrigger className="w-full md:w-[160px]">
               <SelectValue placeholder="Category" />
@@ -54,6 +58,7 @@ export function RecipeFilters({
               ))}
             </SelectContent>
           </Select>
+
           <Select value={difficulty} onValueChange={onDifficultyChange}>
             <SelectTrigger className="w-full md:w-[160px]">
               <SelectValue placeholder="Difficulty" />
@@ -63,6 +68,20 @@ export function RecipeFilters({
               {DIFFICULTIES.map((diff) => (
                 <SelectItem key={diff} value={diff}>
                   {diff}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+
+          <Select value={cuisine} onValueChange={onCuisineChange}>
+            <SelectTrigger className="w-full md:w-[160px]">
+              <SelectValue placeholder="Cuisine" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Cuisines</SelectItem>
+              {CUISINES.map((cuisine) => (
+                <SelectItem key={cuisine} value={cuisine}>
+                  {cuisine}
                 </SelectItem>
               ))}
             </SelectContent>

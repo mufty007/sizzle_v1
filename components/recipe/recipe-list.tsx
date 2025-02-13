@@ -14,6 +14,7 @@ export function RecipeList({ initialRecipes }: RecipeListProps) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [difficulty, setDifficulty] = useState("all");
+  const [cuisine, setCuisine] = useState("all");
 
   const filteredRecipes = useMemo(() => {
     return initialRecipes.filter((recipe) => {
@@ -21,10 +22,11 @@ export function RecipeList({ initialRecipes }: RecipeListProps) {
         recipe.description.toLowerCase().includes(search.toLowerCase());
       const matchesCategory = category === "all" || recipe.category === category;
       const matchesDifficulty = difficulty === "all" || recipe.difficulty === difficulty;
+      const matchesCuisine = cuisine === "all" || recipe.cuisine === cuisine;
 
-      return matchesSearch && matchesCategory && matchesDifficulty;
+      return matchesSearch && matchesCategory && matchesDifficulty && matchesCuisine;
     });
-  }, [initialRecipes, search, category, difficulty]);
+  }, [initialRecipes, search, category, difficulty, cuisine]);
 
   return (
     <div className="space-y-8">
@@ -32,14 +34,19 @@ export function RecipeList({ initialRecipes }: RecipeListProps) {
         search={search}
         category={category}
         difficulty={difficulty}
+        cuisine={cuisine}
         onSearchChange={setSearch}
         onCategoryChange={setCategory}
         onDifficultyChange={setDifficulty}
+        onCuisineChange={setCuisine}
       />
       {filteredRecipes.length > 0 ? (
         <RecipeGrid recipes={filteredRecipes} />
       ) : (
-        <EmptyState />
+        <EmptyState
+          title="No recipes found"
+          description="Try adjusting your filters to find more recipes"
+        />
       )}
     </div>
   );

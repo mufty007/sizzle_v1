@@ -1,4 +1,4 @@
-import { Category, Difficulty } from "@/lib/constants/recipe";
+import { Category, Difficulty, Cuisine } from "@/lib/constants/recipe";
 
 export interface Recipe {
   id: string;
@@ -9,6 +9,8 @@ export interface Recipe {
   cookTime: number;
   difficulty: Difficulty;
   rating: number;
+  cuisine: Cuisine;
+  servings: number;
   ingredients: string[];
   instructions: string[];
   comments: Comment[];
