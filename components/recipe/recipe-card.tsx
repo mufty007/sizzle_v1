@@ -17,13 +17,17 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
       <Card className="group overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
         <div className="relative aspect-video">
           {recipe.image && (
-            <Image
-              src={recipe.image}
-              alt={recipe.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
+            <div className="relative w-full h-full">
+              <Image
+                src={recipe.image}
+                alt={recipe.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={false}
+                unoptimized
+              />
+            </div>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
           <Badge variant="secondary" className="absolute top-4 right-4">

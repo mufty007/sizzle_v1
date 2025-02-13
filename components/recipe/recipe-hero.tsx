@@ -16,14 +16,17 @@ export function RecipeHero({ recipe }: RecipeHeroProps) {
       <div className="absolute inset-0 bg-grid-black/5 [mask-image:linear-gradient(0deg,transparent,black)]" />
       {recipe.image && (
         <div className="absolute inset-0">
-          <Image
-            src={recipe.image}
-            alt={recipe.title}
-            fill
-            className="object-cover opacity-30"
-            sizes="100vw"
-            priority
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src={recipe.image}
+              alt={recipe.title}
+              fill
+              className="object-cover opacity-30"
+              sizes="100vw"
+              priority
+              unoptimized
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         </div>
       )}

@@ -11,6 +11,8 @@ const nextConfig = {
         hostname: 'api.dicebear.com',
       }
     ],
+    unoptimized: true,
+    domains: ['images.unsplash.com', 'api.dicebear.com']
   },
   // Disable SWC minification for WebContainer compatibility
   swcMinify: false,
