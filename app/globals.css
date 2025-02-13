@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 50% 98%;
+    --foreground: 150 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 150 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 10% 10%;
+    --primary: 142 72% 29%;
+    --primary-foreground: 144 100% 98%;
+    --secondary: 142 20% 92%;
+    --secondary-foreground: 142 72% 29%;
+    --muted: 142 20% 92%;
+    --muted-foreground: 150 10% 40%;
+    --accent: 142 30% 90%;
+    --accent-foreground: 142 72% 29%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 142 20% 88%;
+    --input: 142 20% 88%;
+    --ring: 142 72% 29%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 150 20% 5%;
+    --foreground: 150 10% 97%;
+    --card: 150 20% 8%;
+    --card-foreground: 150 10% 97%;
+    --popover: 150 20% 8%;
+    --popover-foreground: 150 10% 97%;
+    --primary: 142 72% 40%;
+    --primary-foreground: 144 100% 98%;
+    --secondary: 142 20% 18%;
+    --secondary-foreground: 142 72% 40%;
+    --muted: 142 20% 18%;
+    --muted-foreground: 150 10% 70%;
+    --accent: 142 30% 18%;
+    --accent-foreground: 142 72% 40%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 150 10% 97%;
+    --border: 142 20% 18%;
+    --input: 142 20% 18%;
+    --ring: 142 72% 40%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-foreground;
+  }
+}
+
+.bg-grid-black {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(0 0 0 / 0.1)' stroke-width='1'%3E%3Cpath d='M0 0h24v24H0z' /%3E%3C/svg%3E");
+}
+
+.bg-grid-white {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(255 255 255 / 0.1)' stroke-width='1'%3E%3Cpath d='M0 0h24v24H0z' /%3E%3C/svg%3E");
+}
+
+.bg-grid-pattern {
+  background-size: 24px 24px;
+}
+
+.gradient-fade-up {
+  mask-image: linear-gradient(to top, transparent, black);
+}
+
+.gradient-fade-down {
+  mask-image: linear-gradient(to bottom, transparent, black);
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Font loading fallback */
+.font-loading-fallback {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
