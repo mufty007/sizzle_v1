@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Recipe } from "@/lib/types/recipe";
 import { Badge } from "@/components/ui/badge";
 import { RecipeActions } from "./recipe-actions";
@@ -15,10 +16,13 @@ export function RecipeHero({ recipe }: RecipeHeroProps) {
       <div className="absolute inset-0 bg-grid-black/5 [mask-image:linear-gradient(0deg,transparent,black)]" />
       {recipe.image && (
         <div className="absolute inset-0">
-          <img
+          <Image
             src={recipe.image}
             alt={recipe.title}
-            className="object-cover w-full h-full opacity-30"
+            fill
+            className="object-cover opacity-30"
+            sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         </div>

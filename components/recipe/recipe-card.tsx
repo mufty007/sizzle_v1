@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Clock, ChefHat, Star } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,10 +17,12 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
       <Card className="group overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
         <div className="relative aspect-video">
           {recipe.image && (
-            <img
+            <Image
               src={recipe.image}
               alt={recipe.title}
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />

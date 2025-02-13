@@ -9,6 +9,14 @@ const nextConfig = {
       },
     ],
   },
+  // Add SWC configuration to fix build error
+  swcMinify: false,
+  // Disable unnecessary experimental features
+  experimental: {
+    // Disable features that might cause issues in WebContainer
+    serverActions: false,
+    serverComponents: false,
+  },
 };
 
 module.exports = nextConfig;

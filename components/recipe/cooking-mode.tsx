@@ -13,7 +13,7 @@ interface CookingModeProps {
 }
 
 export function CookingMode({ instructions, open, onOpenChange }: CookingModeProps) {
-  const [currentStep, setCurrentStep] = useState(-1); // -1 for welcome screen
+  const [currentStep, setCurrentStep] = useState(-1);
   const [timer, setTimer] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
 
@@ -28,11 +28,9 @@ export function CookingMode({ instructions, open, onOpenChange }: CookingModePro
   }, [isTimerRunning]);
 
   useEffect(() => {
-    // Automatically start timer when starting the first step
     if (currentStep === 0) {
       setIsTimerRunning(true);
     }
-    // Automatically stop timer when reaching the last step
     if (currentStep === instructions.length - 1) {
       setIsTimerRunning(false);
     }
@@ -91,7 +89,7 @@ export function CookingMode({ instructions, open, onOpenChange }: CookingModePro
         <div className="space-y-2">
           <h2 className="text-2xl font-bold">Ready to Start Cooking? 👩‍🍳</h2>
           <p className="text-muted-foreground">
-            Let's cook this recipe together! We'll guide you through each step.
+            Let&apos;s cook this recipe together! We&apos;ll guide you through each step.
             The timer will start automatically when you begin. 🕒
           </p>
         </div>
@@ -100,7 +98,7 @@ export function CookingMode({ instructions, open, onOpenChange }: CookingModePro
           onClick={handleNextStep}
           className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80"
         >
-          Let's Begin!
+          Let&apos;s Begin!
         </Button>
       </div>
     </div>
@@ -126,7 +124,7 @@ export function CookingMode({ instructions, open, onOpenChange }: CookingModePro
             </div>
           </div>
           <p className="text-muted-foreground">
-            You've completed all the steps! Your dish should be ready to enjoy.
+            You&apos;ve completed all the steps! Your dish should be ready to enjoy.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -153,7 +151,6 @@ export function CookingMode({ instructions, open, onOpenChange }: CookingModePro
 
   const renderStepContent = () => (
     <div className="flex flex-col h-full">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 sm:p-6 border-b">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
           <span className="text-sm font-medium text-muted-foreground">
@@ -192,7 +189,6 @@ export function CookingMode({ instructions, open, onOpenChange }: CookingModePro
         </div>
       </div>
 
-      {/* Content */}
       <div className="flex-1 flex items-center justify-between p-4 sm:p-6">
         <Button
           variant="ghost"
@@ -223,7 +219,6 @@ export function CookingMode({ instructions, open, onOpenChange }: CookingModePro
         </Button>
       </div>
 
-      {/* Progress bar */}
       <div className="p-4 sm:p-6 border-t">
         <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
           <div

@@ -14,7 +14,7 @@ export function FeaturedRecipes({ recipes }: FeaturedRecipesProps) {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl font-bold mb-4">Featured Recipes</h2>
           <p className="text-muted-foreground">
-            Discover our community's most loved recipes, from quick weekday meals to weekend specialties
+            Discover our community&apos;s most loved recipes, from quick weekday meals to weekend specialties
           </p>
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

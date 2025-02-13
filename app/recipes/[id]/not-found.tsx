@@ -14,7 +14,7 @@ export default function RecipeNotFound() {
         <div className="space-y-2">
           <h1 className="text-3xl font-bold">Recipe Not Found</h1>
           <p className="text-muted-foreground">
-            The recipe you're looking for doesn't exist or has been removed
+            The recipe you&apos;re looking for doesn&apos;t exist or has been removed
           </p>
         </div>
         <Button asChild>
