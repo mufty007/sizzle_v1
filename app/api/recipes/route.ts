@@ -125,25 +125,20 @@ const mockRecipes = [
   }
 ];
 
-export async function GET() {
-  return NextResponse.json(mockRecipes);
-}
 
-export async function POST(request: Request) {
+export async function GET(request: Request) {
+  const searchParams = new URL(request.url).searchParams;
+  const code = searchParams.get('code');
+
+  if (!code) {
+    return NextResponse.redirect('/login');
+  }
+
   try {
-    const body = await request.json();
-    // Mock creating a new recipe
-    const newRecipe = {
-      id: Date.now().toString(),
-      ...body,
-      createdAt: new Date().toISOString(),
-    };
-    
-    return NextResponse.json(newRecipe, { status: 201 });
+    // Handle auth callback
+    return NextResponse.redirect('/');
   } catch (error) {
-    return NextResponse.json(
-      { error: 'Failed to create recipe' },
-      { status: 500 }
-    );
+    console.error('Auth callback error:', error);
+    return NextResponse.redirect('/login?error=callback_failed');
   }
 }
